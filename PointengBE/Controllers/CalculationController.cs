@@ -99,6 +99,23 @@ namespace PointengBE.Controllers
             }
         }
 
+        [HttpPost("AddCalcExcelProm")]
+        public async Task<IActionResult> AddCalculationExcelProm(ExcelCalculation excelFileData)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var AddedcalcExcel = await _Icalc.AddCalculationExcelProm(excelFileData, User);
+            if (string.IsNullOrEmpty(_action.ErrorMessage))
+            {
+                return Ok(AddedcalcExcel);
+            }
+            else
+            {
+                return BadRequest(new { AddedcalcExcel.ErrorMessage });
+            }
+        }
         [HttpGet("Getplan")]
         public IActionResult Getallmonthlist()
         {

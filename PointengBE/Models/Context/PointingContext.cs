@@ -12,9 +12,13 @@ namespace PointengBE.Models.Context
         public DbSet<Plan>? Plan { get; set; } = default!;
         public DbSet<DirectConfig>? DirectConfigs { get; set; } = default!;
         public DbSet<SubDirectConfigs>? SubDirectConfigs { get; set; } = default!;
+        public DbSet<DirectConfigProm>? DirectConfigsProm { get; set; } = default!;
+        public DbSet<SubDirectConfigProm>? SubDirectConfigsProm { get; set; } = default!;
         public DbSet<LogHistory>? LogHistories { get; set; } = default!;
         public DbSet<Locations>? Location { get; set; } = default!;
         public DbSet<Sales>? Sales { get; set; } = default!;
+        public DbSet<SalesPromoter>? SalesPromoter { get; set; } = default!;
+
         public DbSet<Calculations>? Calculations { get; set; } = default!;
 
 

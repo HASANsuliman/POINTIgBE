@@ -12,8 +12,6 @@ namespace PointengBE.Services
         public SubDirectService(PointingContext context)
         {
             _context = context;
-
-
         }
         public DataWithErros GetRegion()
         {
@@ -23,7 +21,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
         public DataWithErros GetCity(string REGION)
         {
             DataWithErros data = new();
@@ -64,8 +61,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
-
         public DataWithErros Getallmonth()
         {
             DataWithErros data = new();
@@ -150,7 +145,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
         public DataWithErros deleteRangeId(int subConfigId, ClaimsPrincipal user)
         {
             var name = user.Identity.Name;
@@ -187,7 +181,6 @@ namespace PointengBE.Services
                 return data;
             }
         }
-
         public DataWithErros GetallDirectConfig(DateTime month)
         {
             DataWithErros data = new();
@@ -196,7 +189,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
         public DataWithErros GetallDirectConfigbyid(Guid Id)
         {
             DataWithErros data = new();
@@ -206,9 +198,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
- 
-
         public DataWithErros GetallsubConfigSubId(int subConfigId)
         {
             DataWithErros data = new();
@@ -218,7 +207,6 @@ namespace PointengBE.Services
             data.ErrorMessage = null;
             return data;
         }
-
         public DataWithErros GetallsubDirectConfig()
         {
             DataWithErros data = new();

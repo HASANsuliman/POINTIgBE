@@ -155,6 +155,43 @@ namespace PointengBE.Migrations
                     b.ToTable("DirectConfigs");
                 });
 
+            modelBuilder.Entity("PointengBE.Models.DirectConfigProm", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DateEntry")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Month")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PlanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RangeFrom")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RangeTo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanId");
+
+                    b.ToTable("DirectConfigsProm");
+                });
+
             modelBuilder.Entity("PointengBE.Models.Locations", b =>
                 {
                     b.Property<int>("Id")
@@ -309,6 +346,152 @@ namespace PointengBE.Migrations
                     b.ToTable("Sales");
                 });
 
+            modelBuilder.Entity("PointengBE.Models.SalesPromoter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("ACTIVEANDHAVECALL")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AREA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CITY")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Extrapoint")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FIRST_RECHARGE")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MONTH")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PROM_CITY")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PROM_NAME")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Point")
+                        .HasColumnType("int");
+
+                    b.Property<string>("REGION")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RETAIL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SALES_DATE")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SD_CODE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SD_NAME")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SHOP_NAME")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("STATUS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SUBAREA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SUBNO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SUPERVISOR")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ToalPoint")
+                        .HasColumnType("int");
+
+                    b.Property<string>("USERID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZONE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SalesPromoter");
+                });
+
+            modelBuilder.Entity("PointengBE.Models.SubDirectConfigProm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AREA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CITY")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateEntry")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ExtraPoints")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Month")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PlanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
+                    b.Property<string>("REGION")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RangeFrom")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("RangeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("RangeTo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SUBAREA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SUBDEALER")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SubConfigId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZONE")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubDirectConfigsProm");
+                });
+
             modelBuilder.Entity("PointengBE.Models.SubDirectConfigs", b =>
                 {
                     b.Property<int>("Id")
@@ -450,6 +633,17 @@ namespace PointengBE.Migrations
                 {
                     b.HasOne("PointengBE.Models.Plan", "Plan")
                         .WithMany("DirectConfigs")
+                        .HasForeignKey("PlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Plan");
+                });
+
+            modelBuilder.Entity("PointengBE.Models.DirectConfigProm", b =>
+                {
+                    b.HasOne("PointengBE.Models.Plan", "Plan")
+                        .WithMany()
                         .HasForeignKey("PlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

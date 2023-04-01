@@ -10,6 +10,7 @@ namespace PointengBE.Services.Interfaaces
 
         Task<DataWithErros> AddCalculation(calc entity, ClaimsPrincipal user);
         Task<DataWithErros> AddCalculationExcel(ExcelCalculation excelFileData, ClaimsPrincipal user);
+        Task<DataWithErros> AddCalculationExcelProm(ExcelCalculation excelFileData, ClaimsPrincipal user);
 
         DataWithErros getDataCalculation();
         DataWithErros GetSalesData();

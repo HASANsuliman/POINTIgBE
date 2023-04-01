@@ -8,11 +8,9 @@ namespace PointengBE.Services.Interfaaces
         DataWithErros GetRegion();
         DataWithErros GetCity(string REGION);
         DataWithErros GetZone(string CITY);
-
         DataWithErros GetArea(string ZONE);
         DataWithErros GetSubArea(string AREA);
         DataWithErros GetSubDealer(string SUBAREA);
-
         DataWithErros Getallmonth();
         DataWithErros GetallDirectConfig(DateTime month);
         Task<DataWithErros> AddsubDirectCfg(subDirConfigBinding entity, ClaimsPrincipal user);

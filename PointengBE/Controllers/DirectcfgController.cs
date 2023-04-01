@@ -23,7 +23,6 @@ namespace PointengBE.Controllers
         private readonly IdirctInterface? _Idirect;
         public DirectcfgController(IdirctInterface idirect)
         {
-
             _Idirect = idirect;
         }
 

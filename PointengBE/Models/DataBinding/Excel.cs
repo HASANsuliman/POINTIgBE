@@ -3,8 +3,8 @@
     public class Excel
 
     {
-        //public string? DFROM { get; set; }
-        //public string? DTO { get; set; }
+        public string? DFROM { get; set; }
+        public string? DTO { get; set; }
 
         //public int? EXTRAPOINTS { get; set; }
 

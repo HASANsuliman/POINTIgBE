@@ -8,8 +8,9 @@ using PointengBE.Services.Interfaaces;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<PointingContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("PointingSystemProduction") ?? throw new InvalidOperationException("Connection string 'PointingSystemContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PointingSystemContext") ?? throw new InvalidOperationException("Connection string 'PointingSystemContext' not found.")));
 //PointingSystemProduction
+//PointingSystemContext
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -17,7 +18,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPlanInterface, PlanService>();
 builder.Services.AddScoped<IdirctInterface, DirectService>();
+builder.Services.AddScoped<IdirctPromInterface, DirectPromService>();
 builder.Services.AddScoped<ISubDirectInterface, SubDirectService>();
+builder.Services.AddScoped<ISubDirectPromInterface, SubDirectPromService>();
+
 builder.Services.AddScoped<AuthInterface, AuthServices>();
 builder.Services.AddScoped<ICalculationInterface, CalculationService>();
 
